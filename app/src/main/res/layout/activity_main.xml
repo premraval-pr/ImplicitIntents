@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#201B1B">
+
+    <EditText
+        android:id="@+id/et_event_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="Enter Event Title"
+        android:paddingVertical="10dp"
+        android:layout_margin="10dp"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        android:gravity="center"
+        android:background="@drawable/outlineround"/>
+
+    <LinearLayout
+        android:id="@+id/ll_pickers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/et_event_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        app:layout_constraintRight_toRightOf="parent">
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Select Date"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:layout_marginHorizontal="5dp"
+            android:paddingVertical="10dp"
+            android:background="@drawable/outlineround"/>
+        <TextView
+            android:id="@+id/tv_start"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Start Time"
+            android:layout_marginHorizontal="5dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:paddingVertical="10dp"
+            android:background="@drawable/outlineround"/>
+        <TextView
+            android:id="@+id/tv_end"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="End Time"
+            android:layout_marginHorizontal="5dp"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:paddingVertical="10dp"
+            android:background="@drawable/outlineround"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_event_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ll_pickers"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="Enter Event Description"
+        android:paddingVertical="10dp"
+        android:layout_margin="10dp"
+        android:textColorHint="#fff"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:background="@drawable/outlineround"/>
+
+    <EditText
+        android:id="@+id/et_event_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/et_event_description"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="Enter Email for invitees"
+        android:paddingVertical="10dp"
+        android:layout_margin="10dp"
+        android:textColorHint="#fff"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:background="@drawable/outlineround"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_all_day"
+        android:textColor="#fff"
+        android:shadowColor="#fff"
+        android:buttonTint="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All Day Event"
+        app:layout_constraintStart_toStartOf="@id/et_event_title"
+        app:layout_constraintTop_toBottomOf="@id/et_event_email"
+        android:layout_marginTop="10dp"/>
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/private_event"
+        android:theme="@style/SwitchTheme"
+        app:layout_constraintEnd_toEndOf="@id/et_event_title"
+        app:layout_constraintTop_toTopOf="@id/checkbox_all_day"
+        app:layout_constraintBottom_toBottomOf="@id/checkbox_all_day"
+        android:layout_marginTop="10dp"
+        android:textColor="#fff"
+        android:text="Private Event  "/>
+
+    <TextView
+        android:id="@+id/add_cal_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Calendar Event"
+        android:textSize="20sp"
+        app:layout_constraintVertical_bias="0.4"
+        android:backgroundTint="#673AB7"
+        android:textColor="#fff"
+        android:padding="10dp"
+        android:gravity="center"
+        android:onClick="addEvent"
+        android:background="@drawable/__roundbackground"
+        android:layout_margin="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/checkbox_all_day" />
+
+    <TextView
+        android:id="@+id/add_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Image"
+        android:textSize="20sp"
+        android:backgroundTint="#673AB7"
+        android:textColor="#fff"
+        android:onClick="addImage"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="40dp"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintStart_toStartOf="@id/add_cal_event"
+        android:background="@drawable/__roundbackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_cal_event"/>
+
+    <ImageView
+        android:id="@+id/uploaded_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/outlineround"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="@id/add_image"
+        app:layout_constraintRight_toRightOf="@id/add_cal_event"
+        app:layout_constraintLeft_toRightOf="@id/add_image"
+        app:layout_constraintBottom_toBottomOf="@id/add_image"/>
+
+    <EditText
+        android:id="@+id/et_email_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/uploaded_image"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="Enter Subject"
+        android:paddingVertical="10dp"
+        android:textColor="#fff"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="10dp"
+        android:textColorHint="#fff"
+        android:gravity="center"
+        android:background="@drawable/outlineround"/>
+
+    <EditText
+        android:id="@+id/et_email_recipient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        app:layout_constraintTop_toBottomOf="@id/et_email_subject"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:hint="Enter Recipient"
+        android:paddingVertical="10dp"
+        android:layout_margin="10dp"
+        android:textColorHint="#fff"
+        android:gravity="center"
+        android:background="@drawable/outlineround"/>
+
+    <CheckBox
+        android:id="@+id/email_attach_ch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:buttonTint="#fff"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/et_email_recipient"
+        android:text="Add above image as attachment"
+        app:layout_constraintTop_toBottomOf="@id/et_email_recipient"/>
+    
+    <TextView
+        android:id="@+id/compose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Compose Email"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:backgroundTint="#673AB7"
+        android:textColor="#fff"
+        android:padding="10dp"
+        android:onClick="sendMain"
+        android:background="@drawable/__roundbackground"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email_attach_ch"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
